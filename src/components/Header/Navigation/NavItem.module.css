@@ -1,0 +1,16 @@
+.NavItem {
+  color: rgba(252, 153, 24, 0.8);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: color 200ms ease;
+}
+
+.Logo {
+  color: #FC9918FF;
+  font-size: 1.2em;
+}
+
+.NavItem:hover {
+  color: #F14A16;
+}
