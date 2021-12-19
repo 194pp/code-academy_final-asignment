@@ -5,6 +5,7 @@ import Homepage from "./Homepage/Homepage";
 import Register from "./Register/Register";
 import Login from "./Login/Login";
 import Users from "./Users/Users";
+import Logout from "./Logout/Logout";
 
 const Main = () => {
   return (
@@ -14,6 +15,7 @@ const Main = () => {
           <Route path='/' element={<Homepage />}/>
           <Route path='/register' element={<Register />}/>
           <Route path='/login' element={<Login />}/>
+          <Route path='/logout' element={<Logout />}/>
           <Route path='/users' element={<Users />}/>
         </Routes>
       </SpacerContainer>

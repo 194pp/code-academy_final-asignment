@@ -6,7 +6,7 @@ const Navbar = () => {
     <nav className={classes.Navbar}>
       <NavItem to="/register" content="Register"/>
       <NavItem to="/login" content="Login"/>
-      <NavItem to="/" content="Logout"/>
+      <NavItem to="/logout" content="Logout"/>
       <NavItem to="/users" content="Users"/>
     </nav>
   )
