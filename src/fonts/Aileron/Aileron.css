@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Aileron';
+  font-style: normal;
+  font-weight: 400;
+  src:
+      local('Aileron-Black'),
+      url(./Aileron-Black.otf) format('otf');
+}
+
+@font-face {
+  font-family: 'Aileron';
+  font-style: normal;
+  font-weight: 700;
+  src:
+      local('Aileron-Bold'),
+      url(./Aileron-Bold.otf) format('otf');
+}
