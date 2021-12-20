@@ -3,10 +3,11 @@ import PageHeading from "../../UI/PageHeading";
 import {useEffect, useState} from "react";
 import {useAuthContext} from "../../../store/AuthContext";
 import UserCardGrid from "./Layout/UserCardGrid";
+import {serverURL} from "../../utils/configs";
 
 const Users = () => {
   const [usersData, setUsersData] = useState([]);
-  const {authAxios} = useAuthContext();
+  const {authAxios, tokenBearer} = useAuthContext();
 
   const fetchUsers = async () => {
     await authAxios.get("/users").then((data) => {
@@ -22,15 +23,17 @@ const Users = () => {
   }, []);
 
   const deleteUserHandler = async (userId) => {
-    const body = {idToDelete: userId};
-    console.log(body);
-    await authAxios.delete('/users', body)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => {
-        console.log(err.response);
-      });
+    const payload = {idToDelete: userId};
+    await fetch(`${serverURL}/users`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: tokenBearer,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload)
+    }).then((response) => {
+      console.log(response);
+    })
     await fetchUsers();
   }
 

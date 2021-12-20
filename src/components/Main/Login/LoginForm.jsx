@@ -3,11 +3,10 @@ import {Form, Formik, Field} from "formik";
 import {loginSchema} from "./loginSchema";
 import Button from "../../UI/Button";
 import Input from "../../UI/FormItems/Input";
-import {postFetch} from "../../utils/fetch";
 import {serverURL} from "../../utils/configs";
 import {useNavigate} from "react-router-dom";
-import {useContext, useState} from "react";
-import {AuthContext, useAuthContext} from "../../../store/AuthContext";
+import {useState} from "react";
+import {useAuthContext} from "../../../store/AuthContext";
 import axios from "axios";
 
 const LoginForm = () => {
@@ -40,25 +39,12 @@ const LoginForm = () => {
                 setAuthData({username: data.username, token: response.data.data.token});
                 setLoginError("");
                 setLoginSuccess(true);
+                setTimeout(() => {
+                  navigate('/users');
+                }, 1000)
               }).catch((err) => {
                 setLoginError(err.response.data.err);
               });
-
-            // await postFetch(serverURL + "/login", data)
-            //   .then(data => {
-            //     if (data.msg === "Logged in") {
-            //       const token = data.data.token;
-            //       localStorage.setItem('vks_key', token);
-            //       setLoginSuccess(true);
-            //       setLoginError('');
-            //       setTimeout(() => {
-            //         navigate('/users');
-            //       }, 1000)
-            //     } else {
-            //       console.log(data);
-            //       setLoginError(data.err);
-            //     }
-            //   });
 
             setSubmitting(false);
           }}>
