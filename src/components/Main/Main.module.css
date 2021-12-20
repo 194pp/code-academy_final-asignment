@@ -1,3 +1,8 @@
 .Main {
+  width: 100%;
+}
 
+.MainContent {
+  text-align: left;
+  padding: 12px;
 }

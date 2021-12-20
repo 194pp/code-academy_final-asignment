@@ -11,13 +11,15 @@ const Main = () => {
   return (
     <main className={classes.Main}>
       <SpacerContainer>
-        <Routes>
-          <Route path='/' element={<Homepage />}/>
-          <Route path='/register' element={<Register />}/>
-          <Route path='/login' element={<Login />}/>
-          <Route path='/logout' element={<Logout />}/>
-          <Route path='/users' element={<Users />}/>
-        </Routes>
+        <div className={classes.MainContent}>
+          <Routes>
+            <Route path='/' element={<Homepage />}/>
+            <Route path='/register' element={<Register />}/>
+            <Route path='/login' element={<Login />}/>
+            <Route path='/logout' element={<Logout />}/>
+            <Route path='/users' element={<Users />}/>
+          </Routes>
+        </div>
       </SpacerContainer>
     </main>
   )
