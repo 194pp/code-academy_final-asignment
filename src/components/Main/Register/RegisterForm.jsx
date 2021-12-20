@@ -39,7 +39,7 @@ const RegisterForm = () => {
 
             await postFetch(serverURL + '/register', dataToSend)
               .then(data => {
-                if (data.msg === "Account has been created") {
+                if (data.msg === "Vartotojas buvo sukurtas") {
                   setRegisterError('');
                   setRegisterSuccess(true);
                 } else {
