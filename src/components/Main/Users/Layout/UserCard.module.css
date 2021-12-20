@@ -1,0 +1,26 @@
+.UserCard {
+  max-width: 316px;
+  overflow: hidden;
+  font-size: .8em;
+  margin: 3px;
+  border: 1px solid black;
+  border-radius: 10px 10px 25px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.UserInfoContainer {
+  padding: 16px;
+}
+
+.UserButtonsContainer {
+
+}
+
+.ButtonContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

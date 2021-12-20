@@ -1,0 +1,4 @@
+.UserCardGrid {
+  display: flex;
+  flex-wrap: wrap;
+}

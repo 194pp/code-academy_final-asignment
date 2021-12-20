@@ -1,0 +1,37 @@
+.UsersTableRow {
+  background-color: white;
+  position: relative;
+}
+
+.UsersTableRow:first-child {
+  font-weight: bold;
+  font-size: 1em !important;
+}
+
+.UsersTableRow > td {
+  padding: 0 8px;
+}
+
+.ActionButtons {
+  position: absolute;
+  top: 5px;
+  right: -55px;
+}
+
+.ModifyAction {
+  color: #370665;
+  cursor: pointer;
+}
+
+.ModifyAction:hover {
+  color: #FC9918FF;
+}
+
+.DeleteAction {
+  color: #370665;
+  cursor: pointer;
+}
+
+.DeleteAction:hover {
+  color: red;
+}

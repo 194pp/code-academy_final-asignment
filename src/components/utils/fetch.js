@@ -1,3 +1,6 @@
+import axios from "axios";
+import {serverURL} from "./configs";
+
 export async function postFetch(url, body) {
   try {
     const resp = await fetch(url, {

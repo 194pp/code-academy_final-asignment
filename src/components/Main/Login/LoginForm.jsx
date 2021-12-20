@@ -6,10 +6,13 @@ import Input from "../../UI/FormItems/Input";
 import {postFetch} from "../../utils/fetch";
 import {serverURL} from "../../utils/configs";
 import {useNavigate} from "react-router-dom";
-import {useState} from "react";
+import {useContext, useState} from "react";
+import {AuthContext, useAuthContext} from "../../../store/AuthContext";
+import axios from "axios";
 
 const LoginForm = () => {
   const navigate = useNavigate();
+  const {setAuthData} = useAuthContext();
   const [loginSuccess, setLoginSuccess] = useState(false);
   const [loginError, setLoginError] = useState();
 
@@ -30,21 +33,32 @@ const LoginForm = () => {
           onSubmit={async (data, {setSubmitting}) => {
             setSubmitting(true);
 
-            await postFetch(serverURL + "/login", data)
-              .then(data => {
-                if (data.msg === "Logged in") {
-                  const token = data.data.token;
-                  localStorage.setItem('vks_key', token);
-                  setLoginSuccess(true);
-                  setLoginError('');
-                  setTimeout(() => {
-                    navigate('/users');
-                  }, 1000)
-                } else {
-                  console.log(data);
-                  setLoginError(data.err);
-                }
+            await axios.post(serverURL + "/login", data)
+              .then((response) => {
+                localStorage.setItem('vks_token', response.data.data.token);
+                localStorage.setItem('vks_username', data.username);
+                setAuthData({username: data.username, token: response.data.data.token});
+                setLoginError("");
+                setLoginSuccess(true);
+              }).catch((err) => {
+                setLoginError(err.response.data.err);
               });
+
+            // await postFetch(serverURL + "/login", data)
+            //   .then(data => {
+            //     if (data.msg === "Logged in") {
+            //       const token = data.data.token;
+            //       localStorage.setItem('vks_key', token);
+            //       setLoginSuccess(true);
+            //       setLoginError('');
+            //       setTimeout(() => {
+            //         navigate('/users');
+            //       }, 1000)
+            //     } else {
+            //       console.log(data);
+            //       setLoginError(data.err);
+            //     }
+            //   });
 
             setSubmitting(false);
           }}>
