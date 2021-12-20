@@ -4,10 +4,10 @@ import NavItem from "./NavItem";
 const Navbar = () => {
   return (
     <nav className={classes.Navbar}>
-      <NavItem to="/register" content="Register"/>
-      <NavItem to="/login" content="Login"/>
-      <NavItem to="/logout" content="Logout"/>
-      <NavItem to="/users" content="Users"/>
+      <NavItem to="/register" content="Registracija"/>
+      <NavItem to="/login" content="Prisijungimas"/>
+      <NavItem to="/logout" content="Atsijungti"/>
+      <NavItem to="/users" content="Vartotojai"/>
     </nav>
   )
 }
