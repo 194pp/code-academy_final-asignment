@@ -7,7 +7,12 @@
 }
 
 .HeaderContent {
+  padding: 0 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.SiteLogo {
+  font-size: 35px;
 }

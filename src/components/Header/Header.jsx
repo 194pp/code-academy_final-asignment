@@ -10,9 +10,9 @@ const Header = () => {
       <SpacerContainer>
         <div className={classes.HeaderContent}>
           <NavItem to="/"
-                   logo={true}
-                   content={<><Icon icon="account_circle"/>
-                     AccountManager</>}/>
+                   logo
+                   content={<><Icon icon="account_circle" className={classes.SiteLogo}/>
+                     VKS</>}/>
           <Navbar />
         </div>
       </SpacerContainer>
