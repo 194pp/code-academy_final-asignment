@@ -1,0 +1,31 @@
+.InputGroup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.Input {
+  margin: 4px 0;
+  padding: 4px;
+  border: 3px solid #370665;
+  box-shadow: none;
+  border-radius: 6px;
+  outline: none;
+  font-size: .8em;
+  transition: all 200ms ease;
+}
+.Input:focus {
+  transform: scale(1.02);
+  box-shadow: 1px 1px 1px 1px rgba(128, 128, 128, 0.5);
+}
+
+.InputError {
+
+}
+
+.SpanError {
+  color: red;
+  font-size: 0.8em;
+}
+
+
