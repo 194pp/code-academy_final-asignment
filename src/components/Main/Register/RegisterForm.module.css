@@ -2,3 +2,9 @@
   color: red;
   padding: 16px;
 }
+
+.RegisterSuccess {
+  color: #370665;
+  font-weight: bold;
+  padding: 16px;
+}

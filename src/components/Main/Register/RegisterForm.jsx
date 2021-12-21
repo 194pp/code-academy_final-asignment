@@ -44,7 +44,6 @@ const RegisterForm = () => {
                   setRegisterSuccess(true);
                 } else {
                   setRegisterError(data.err);
-                  console.log(data);
                 }
               });
             setSubmitting(false);
