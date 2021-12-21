@@ -43,7 +43,6 @@ const UserEditContent = ({user, removeModal, updateUsers}) => {
             newData.password = data.password;
           }
 
-          console.log('submitting');
           fetch(`${serverURL}/users`, {
             method: 'PUT',
             headers: {
@@ -114,8 +113,8 @@ const UserEditContent = ({user, removeModal, updateUsers}) => {
             <div className={classes.SuccessMessage}>{successMessage}</div>
             <div className={classes.ErrorMessage}>{errorMessage}</div>
             <div className={classes.ButtonsWrapper}>
-              <Button name='Koreguoti' solid/>
-              <Button name='Išvalyti' type='reset'/>
+              <Button name='Koreguoti' disabled={isSubmitting} solid/>
+              <Button name='Išvalyti' disabled={isSubmitting} type='reset'/>
             </div>
           </Form>
         )}
