@@ -1,6 +1,6 @@
 import * as Yup from "yup";
 
-export const registrationSchema = Yup.object({
+export const registerSchema = Yup.object({
   username: Yup.string()
     .trim()
     .min(5, 'Vartotojo vardas turi būti bent 5 simbolių ilgio')
@@ -17,5 +17,7 @@ export const registrationSchema = Yup.object({
     .min(12, 'Mažiausias leidžiamas amžius: 12')
     .max(130, 'Didžiausias leidžiamas amžius: 130')
     .required("Būtinas laukas"),
-  email: Yup.string().email("Įveskite tinkamą el. paštą").required("Būtinas laukas"),
+  email: Yup.string()
+    .email("Įveskite tinkamą el. paštą")
+    .required("Būtinas laukas"),
 });
