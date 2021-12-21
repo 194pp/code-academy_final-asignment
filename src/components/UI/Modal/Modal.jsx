@@ -1,5 +1,4 @@
 import classes from './Modal.module.css';
-import {useState} from "react";
 
 const Backdrop = ({onclick}) => {
   return (
@@ -7,25 +6,15 @@ const Backdrop = ({onclick}) => {
   )
 }
 
-const Modal = ({children}) => {
-  const [displayModal, setDisplayModal] = useState(true);
-
-  const onClickBackdrop = () => {
-    setDisplayModal(false);
-  }
-
-  if (displayModal) {
-    return (
-      <>
-        <div className={classes.Modal}>
-          {children}
-        </div>
-        <Backdrop onclick={onClickBackdrop} />
-      </>
-    )
-  } else {
-    return <></>
-  }
+const Modal = ({children, removeModal}) => {
+  return (
+    <>
+      <div className={classes.Modal}>
+        {children}
+      </div>
+      <Backdrop onclick={removeModal}/>
+    </>
+  )
 }
 
 export default Modal;

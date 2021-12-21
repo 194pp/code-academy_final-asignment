@@ -5,7 +5,7 @@ import Button from "../../UI/Button";
 import {postFetch} from "../../utils/fetch";
 import {useState} from "react";
 import {Link} from "react-router-dom";
-import {registrationSchema} from "./registrationSchema";
+import {registerSchema} from "./registerSchema";
 import {serverURL} from "../../utils/configs";
 
 const RegisterForm = () => {
@@ -31,7 +31,7 @@ const RegisterForm = () => {
             age: '',
             email: '',
           }}
-          validationSchema={registrationSchema}
+          validationSchema={registerSchema}
           onSubmit={async (data, {setSubmitting}) => {
             setSubmitting(true);
             const dataToSend = {...data};

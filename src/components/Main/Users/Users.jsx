@@ -5,6 +5,7 @@ import {useAuthContext} from "../../../store/AuthContext";
 import UserCardGrid from "./Layout/UserCardGrid";
 import {serverURL} from "../../utils/configs";
 import {useNavigate} from "react-router-dom";
+import Modal from "../../UI/Modal/Modal";
 
 const Users = () => {
   const navigate = useNavigate();
@@ -43,9 +44,11 @@ const Users = () => {
   return (
     <div className={classes.Users}>
       <PageHeading>Vartotojai</PageHeading>
+      {/*<Modal>MODAL</Modal>*/}
       <UserCardGrid
         users={usersData}
         deleteUserHandler={deleteUserHandler}
+        updateUsers={() => fetchUsers()}
       />
       {/*<pre>{JSON.stringify(usersData, null, 2)}</pre>*/}
     </div>
