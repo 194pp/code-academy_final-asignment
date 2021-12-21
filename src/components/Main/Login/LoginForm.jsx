@@ -20,7 +20,7 @@ const LoginForm = () => {
       <div className={classes.LoginError}>{loginError}</div>
       {loginSuccess ?
         <>
-          <div>Prisijungėte sėkmingai!</div>
+          <div className={classes.LoginSuccess}>Prisijungėte sėkmingai!</div>
         </>
         :
         <Formik
