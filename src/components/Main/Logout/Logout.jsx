@@ -4,11 +4,12 @@ import {useEffect} from "react";
 import {useAuthContext} from "../../../store/AuthContext";
 
 const Logout = () => {
-  const {setAuthData} = useAuthContext()
+  const {logout} = useAuthContext()
+
   useEffect(() => {
-    localStorage.removeItem('vks_key');
-    setAuthData({});
-  }, [])
+    logout();
+  }, []);
+
   return (
     <div className={classes.Logout}>
       <PageHeading>Sėkmingai atsijungėte</PageHeading>

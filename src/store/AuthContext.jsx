@@ -21,8 +21,7 @@ export const AuthContextProvider = ({ children }) => {
     const token = localStorage.getItem("vks_token");
     const username = localStorage.getItem("vks_username");
     setAuthData({token: token, username: username});
-  }, [])
-
+  }, []);
   useEffect(() => {
     fetch(`${serverURL}/utils/jwt-verify`, {
       headers: {
@@ -31,7 +30,11 @@ export const AuthContextProvider = ({ children }) => {
       },
     }).then((response) => response.json())
       .then((data) => setTokenIsValid(data));
-  }, [authData])
+  }, [authData]);
+  const logout = () => {
+    localStorage.removeItem('vks_key');
+    setAuthData({});
+  }
 
   const tokenBearer = `Bearer ${authData.token}`;
 
@@ -46,7 +49,16 @@ export const AuthContextProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ authData, setAuthData, authAxios, tokenBearer, tokenIsValid }}
+      value={
+        {
+          authData,
+          setAuthData,
+          authAxios,
+          tokenBearer,
+          tokenIsValid,
+          logout,
+        }
+      }
     >
       {children}
     </AuthContext.Provider>
