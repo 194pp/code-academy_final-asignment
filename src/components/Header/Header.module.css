@@ -4,6 +4,7 @@
   width: 100%;
   padding: 8px 0;
   font-size: 1.3em;
+  transition: all 200ms ease;
 }
 
 .HeaderContent {
@@ -13,6 +14,67 @@
   justify-content: space-between;
 }
 
+.LogoAndBurger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.BurgerContainer {
+  display: none;
+  cursor: pointer;
+}
+
+.Burger {
+  font-size: 40px;
+  color: #FC9918FF;
+}
+
+.BurgerClicked {
+  color: #F14A16;
+}
+
+.BurgerNavbar {
+  display: none;
+}
+
+.RegularNavbar {
+
+}
+
 .SiteLogo {
   font-size: 35px;
+}
+
+@media only screen and (max-width: 1000px) {
+  /*.Header {*/
+  /*  background-color: red;*/
+  /*}*/
+}
+
+@media only screen and (max-width: 450px) {
+  .Header {
+    /*background-color: green;*/
+  }
+
+  .BurgerContainer {
+    display: flex;
+  }
+
+  .HeaderContent, .SiteLogo {
+    font-size: 40px;
+  }
+
+  .HeaderContent {
+    flex-direction: column;
+  }
+
+  .BurgerNavbar {
+    display: flex;
+  }
+
+  .RegularNavbar {
+    display: none;
+  }
 }

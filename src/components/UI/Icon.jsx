@@ -1,5 +1,9 @@
 const Icon = ({type, className, icon}) => {
-  const modifier = type ? `-${type}` : "";
+  let modifier = type ? `-${type}` : "";
+  // if (outlined) {
+  //   modifier = '-outlined';
+  // }
+
   return (
     <span className={`material-icons${modifier} ${className}`}>
       {icon}

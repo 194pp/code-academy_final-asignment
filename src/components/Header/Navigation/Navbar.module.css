@@ -1,4 +1,12 @@
 .Navbar {
   display: flex;
+  align-items: center;
   gap: 16px;
+}
+
+@media only screen and (max-width: 450px) {
+  .Navbar {
+    flex-direction: column;
+    font-size: 30px;
+  }
 }

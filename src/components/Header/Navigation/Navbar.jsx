@@ -3,7 +3,7 @@ import NavItem from "./NavItem";
 import {useAuthContext} from "../../../store/AuthContext";
 
 const Navbar = () => {
-  const {tokenIsValid} = useAuthContext()
+  const {tokenIsValid} = useAuthContext();
 
   return (
     <nav className={classes.Navbar}>
