@@ -1,8 +1,10 @@
 import classes from './Modal.module.css';
 
-const Backdrop = ({onclick}) => {
+const Backdrop = ({onclick, children}) => {
   return (
-    <div className={classes.Backdrop} onClick={onclick}/>
+    <div className={classes.Backdrop} onClick={onclick}>
+      {children}
+    </div>
   )
 }
 
@@ -12,7 +14,8 @@ const Modal = ({children, removeModal}) => {
       <div className={classes.Modal}>
         {children}
       </div>
-      <Backdrop onclick={removeModal}/>
+      <Backdrop onclick={removeModal}>
+      </Backdrop>
     </>
   )
 }
