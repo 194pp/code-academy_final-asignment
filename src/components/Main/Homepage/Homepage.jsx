@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import {useAuthContext} from "../../../store/AuthContext";
 
 const Homepage = () => {
-  const {tokenIsValid} = useAuthContext()
+  const {tokenIsValid} = useAuthContext();
   return (
     <div className={classes.Homepage}>
       <PageHeading>Pradžia</PageHeading>

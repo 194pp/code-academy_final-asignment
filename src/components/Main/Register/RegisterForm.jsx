@@ -1,12 +1,11 @@
-import classes from './RegisterForm.module.css';
+import classes from "./RegisterForm.module.css";
 import {Form, Formik, Field} from "formik";
 import Input from "../../UI/FormItems/Input";
 import Button from "../../UI/Button";
-import {postFetch} from "../../utils/fetch";
 import {useState} from "react";
 import {Link} from "react-router-dom";
 import {registerSchema} from "./registerSchema";
-import {serverURL} from "../../utils/configs";
+import {postFetch} from "../../utils/fetch";
 
 const RegisterForm = () => {
   const [registerSuccess, setRegisterSuccess] = useState(false);
@@ -14,10 +13,10 @@ const RegisterForm = () => {
 
   return (
     <div>
-      <div className={classes.RegisterError}>{registerError}</div>
+      <section className={classes.RegisterError}>{registerError}</section>
       {registerSuccess ?
         <>
-          <div>Sveikiname užsiregistravus!</div>
+          <section>Sveikiname užsiregistravus!</section>
           <Link to="/login">
             <Button name="Prisijungti"/>
           </Link>
@@ -37,7 +36,9 @@ const RegisterForm = () => {
             const dataToSend = {...data};
             delete dataToSend.repeatPassword;
 
-            await postFetch(serverURL + '/register', dataToSend)
+
+
+            await postFetch( 'register', dataToSend)
               .then(data => {
                 if (data.msg === "Vartotojas buvo sukurtas") {
                   setRegisterError('');
@@ -50,13 +51,15 @@ const RegisterForm = () => {
           }}>
           {({
               isSubmitting,
-              errors
+              errors,
+              touched,
             }) => (
             <Form>
               <Field
                 name="username"
                 placeholder="Vartotojo vardas"
                 error={errors.username}
+                touched={touched.username}
                 as={Input}
               />
               <Field
@@ -64,6 +67,7 @@ const RegisterForm = () => {
                 placeholder="Slaptažodis"
                 type="password"
                 error={errors.password}
+                touched={touched.password}
                 as={Input}
               />
               <Field
@@ -71,6 +75,7 @@ const RegisterForm = () => {
                 placeholder="Pakartoti slaptažodį"
                 type="password"
                 error={errors.repeatPassword}
+                touched={touched.repeatPassword}
                 as={Input}
               />
               <Field
@@ -78,12 +83,14 @@ const RegisterForm = () => {
                 placeholder="Amžius"
                 type="number"
                 error={errors.age}
+                touched={touched.age}
                 as={Input}
               />
               <Field
                 name="email"
                 placeholder="Elektroninis paštas"
                 error={errors.email}
+                touched={touched.email}
                 as={Input}
               />
               <Button name="Pateikti" disabled={isSubmitting || !!Object.keys(errors).length}/>

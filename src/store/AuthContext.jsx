@@ -34,7 +34,7 @@ export const AuthContextProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem('vks_key');
     setAuthData({});
-  }
+  };
 
   const tokenBearer = `Bearer ${authData.token}`;
 

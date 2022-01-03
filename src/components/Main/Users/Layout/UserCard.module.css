@@ -6,16 +6,17 @@
   border: 1px solid black;
   border-radius: 10px 10px 25px 25px;
   display: flex;
+  flex-grow: 3;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.UserInfoContainer {
-  padding: 16px;
+.UserButtonsContainer {
+  display: flex;
 }
 
-.UserButtonsContainer {
-
+.UserButton {
+  flex: 2;
 }
 
 .ButtonContent {
@@ -24,3 +25,9 @@
   justify-content: center;
 }
 
+@media only screen and (max-width: 1000px) {
+  .UserCard {
+    max-width: initial;
+    flex-grow: 2;
+  }
+}

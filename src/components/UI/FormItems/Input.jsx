@@ -1,6 +1,6 @@
 import classes from './Input.module.css';
 
-const Input = ({error, type = 'text', ...rest}) => {
+const Input = ({error, touched, type = 'text', ...rest}) => {
   return (
     <div className={classes.InputGroup}>
       <input
@@ -8,7 +8,7 @@ const Input = ({error, type = 'text', ...rest}) => {
         type={type}
         {...rest}
       />
-      {error ? <span className={classes.SpanError}>{error}</span> : ''}
+      {error && touched ? <span className={classes.SpanError}>{error}</span> : ''}
     </div>
   )
 }

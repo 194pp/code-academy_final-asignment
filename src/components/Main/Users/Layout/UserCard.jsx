@@ -4,6 +4,7 @@ import classes from './UserCard.module.css';
 import {useState} from "react";
 import Modal from "../../../UI/Modal/Modal";
 import UserEditContent from "./Edit/UserEditContent";
+import UserDisplayDataFields from "./UserDataFields/UserDisplayDataFields";
 
 const UserCard = ({user, deleteUserHandler, updateUsers}) => {
   const [modal, setModal] = useState('');
@@ -27,20 +28,14 @@ const UserCard = ({user, deleteUserHandler, updateUsers}) => {
 
   return (
     <div className={classes.UserCard}>
-      <div className={classes.UserInfoContainer}>
-        <div><b>_id: </b>{user._id}</div>
-        <div><b>Vartotoas: </b>{user.username}</div>
-        <div><b>Amžius: </b>{user.age}</div>
-        <div><b>El. paštas: </b>{user.email}</div>
-        <div><b>Sukūrimo laikas: </b>{user.createdAt}</div>
-      </div>
+      <UserDisplayDataFields user={user} />
       <div className={classes.UserButtonsContainer}>
-        <Button name={
+        <Button className={classes.UserButton} name={
           <div className={classes.ButtonContent}>
             <Icon icon='edit'/><span>Redaguoti</span>
           </div>
         } onClick={editHandler}/>
-        <Button name={
+        <Button className={classes.UserButton} solid name={
           <div className={classes.ButtonContent}>
             <Icon icon='delete'/><span>Ištrinti</span>
           </div>

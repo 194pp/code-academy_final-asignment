@@ -1,0 +1,25 @@
+.Container {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Container > dl {
+  margin: 0;
+}
+
+.Table {
+
+}
+
+.Table th {
+  font-weight: normal;
+}
+
+.Username {
+  font-weight: bold;
+  font-size: 1.2em;
+  align-self: center;
+  opacity: 0.5;
+  padding-bottom: .5rem;
+}
