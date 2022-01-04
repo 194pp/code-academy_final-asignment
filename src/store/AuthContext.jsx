@@ -32,7 +32,8 @@ export const AuthContextProvider = ({ children }) => {
       .then((data) => setTokenIsValid(data));
   }, [authData]);
   const logout = () => {
-    localStorage.removeItem('vks_key');
+    localStorage.removeItem('vks_token');
+    localStorage.removeItem('vks_username');
     setAuthData({});
   };
 
